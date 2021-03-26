@@ -3,9 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
-    <title>Document</title>
+    <title>Lesson - 32</title>
 </head>
 <body>
-    <h2>это тестовая страница</h2>
+    <h2>lesson - 32</h2>
+    {% for todo in todo_list %}
+        <h3>{{ todo.text }}</h3>
+    {% endfor %}
 </body>
 </html>
