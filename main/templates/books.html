@@ -8,17 +8,25 @@
 </head>
 <body>
     <h2>Книжный магазин</h2>
+    <form action="{% url 'add' %}" method="POST">
+    {% csrf_token %}
+    <input name = "name_book" type="text" placeholder="введите название"><br>
+    <input name = "sub_name" type="text" placeholder="введите подзаголовок"><br>
+    <input name = "descr" type="text" placeholder="введите описание"><br>
+    <input name = "price_book" type="text" placeholder="введите цену"><br>
+    <input name = "genre" type="text" placeholder="жанр"><br>
+    <input name = "auth" type="text" placeholder="автор"><br>
+    <input name = "cr_date" type="text" placeholder="год выхода"><br>
+    <button class="create_button">Добавить</button>
+    </form>
     {% for bshop in bshop_list %}
-
     <h3>
     <br>
     <h4>Название: {{bshop.title}}</h4>
-    
-    <h4>Описание: {{bshop.price}}</h4>
+    <h4>Стоимость: {{bshop.price}}</h4>
     <h4>Год выхода:{{bshop.year}}</h4>
     <h4>Дата публикации: {{bshop.published}}</h4>
     </h3>
-
     {% endfor %}
 </body>
 </html>
