@@ -13,5 +13,5 @@ class BookShop(models.Model):
     price = models.FloatField(null=True, blank=True, verbose_name='Цена')
     genre = models.CharField(max_length=50)
     autor = models.CharField(max_length=50)
-    year = models.DateTimeField(auto_now_add=False, verbose_name='Год выхоа книги')
+    year = models.DateTimeField(auto_now_add=True, verbose_name='Год выхоа книги')
     published = models.DateTimeField(auto_now_add=True, verbose_name='Дата добавления')

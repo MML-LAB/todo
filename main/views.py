@@ -1,4 +1,4 @@
-from django.shortcuts import render, HttpResponse, redirect
+from django.shortcuts import render, HttpResponse
 from .models import *
 
 def homepage(request):
@@ -26,10 +26,18 @@ def add(request):
     b_price = bform["price_book"]
     b_genre = bform["genre"]
     b_autor = bform["auth"]
-    b_create = bform["cr_date"]
-    books = BookShop(btext=title, s_text=subtitle, b_descr=description, b_price=price, b_genre=genre, b_autor=author, b_create=year )
+    # b_create = bform["cr_date"] 
+    books = BookShop(
+        title = btext, 
+        subtitle = s_text, 
+        description = b_descr, 
+        price = b_price, 
+        genre = b_genre, 
+        autor = b_autor, 
+        # year = b_create,
+    )
     books.save()
-    return redirect(books)
+    return HttpResponse ("Данные успешно добавлены")
     
 def edit(request):
     return render(request, 'edit.html')
